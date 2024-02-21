@@ -1,5 +1,5 @@
-from db.dbcore import DB, DB_Table_equipment
-from qt.qtcore import QTapp, MainWindow
+from db.DbCore import DB, DB_Table_equipment
+from qt.QtCore import QTapp, MainWindow
 
 def main():
     data_base = DB('database.db')

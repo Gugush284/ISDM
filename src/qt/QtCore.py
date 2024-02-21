@@ -1,5 +1,5 @@
 from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidgetItem, QPushButton
+from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidgetItem, QPushButton, QHeaderView
 import sys
 from qt.table import Table
 
@@ -18,6 +18,8 @@ class MainWindow(QMainWindow):
         central_widget.setLayout(grid_layout)   # Set this layout in central widget
 
         self.table = Table(names, row_count, data, self.num_header, data_base_table)  # Create a table
+
+        self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
 
         AddButton = self.__init_add_button__()
  

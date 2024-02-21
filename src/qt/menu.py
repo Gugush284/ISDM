@@ -1,5 +1,4 @@
-from PyQt6.QtWidgets import QWidget, QMenu, QApplication
-import sys
+from PyQt6.QtWidgets import QMenu
 
 class TableMenu(QMenu):
     def __init__(self, table):
@@ -19,5 +18,5 @@ class TableMenu(QMenu):
     def del_action_triggered(self):
         if (self.row != None):
             self.table.db_table.delete_row(str(self.table.item(self.row , 0).text()))
-            
+
             self.table.removeRow(self.row)
