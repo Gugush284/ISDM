@@ -27,7 +27,6 @@ class Table(QTableWidget):
         self.setMinimumSize(QSize(449, 80))
 
     def __item_changed__(self, item):
-        self.resizeColumnsToContents()
 
         if (item.column() != 0):
             cell = self.item(item.row(), item.column())
