@@ -66,9 +66,18 @@ class DB_Table_equipment(DB_Table):
         return self.db.cursor.fetchone()[0]
     
     def get_row(self, id: str):
-        string = "select * from equipment WHERE id = " + id
+        string = "select * from equipment WHERE id = " + id + ";"
         self.db.cursor.execute(string)
         
         return self.db.cursor.fetchone()
+    
+    def delete_row(self, id: str):
+        string = "DELETE from equipment WHERE id = " + id + ";"
+
+        self.db.cursor.execute(string)
+
+        self.db.connection.commit()
+
+        
 
 

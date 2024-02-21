@@ -1,5 +1,5 @@
-from data import DB, DB_Table_equipment
-from qt import QTapp, TableWindow
+from db.dbcore import DB, DB_Table_equipment
+from qt.qtcore import QTapp, MainWindow
 
 def main():
     data_base = DB('database.db')
@@ -8,7 +8,7 @@ def main():
 
     teq = DB_Table_equipment(data_base)
 
-    window = TableWindow(teq.header_labels, teq.row_count(), teq.select_all_data(), teq)
+    window = MainWindow(teq.header_labels, teq.row_count(), teq.select_all_data(), teq)
     window.show()
 
     app.exec()
