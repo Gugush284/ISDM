@@ -1,14 +1,14 @@
-import data
-import qt
+from data import DB, DB_Table_equipment
+from qt import QTapp, TableWindow
 
 def main():
-    data_base = data.DB('database.db')
+    data_base = DB('database.db')
 
-    app = qt.QTapp()
+    app = QTapp()
 
-    teq = data.DB_Table_equipment(data_base, ["id", "name"])
+    teq = DB_Table_equipment(data_base)
 
-    window = qt.TableWindow(teq.header_labels, teq.row_count(), teq.select_all_data())
+    window = TableWindow(teq.header_labels, teq.row_count(), teq.select_all_data(), teq)
     window.show()
 
     app.exec()
