@@ -18,7 +18,7 @@ class DB_Table():
 
 class DB_Table_equipment(DB_Table):
     def __init__(self, data_base):
-        names = ["id", "name"]
+        names = ["id", "name", "func"]
 
         DB_Table.__init__(self, data_base, names)
 
@@ -26,7 +26,8 @@ class DB_Table_equipment(DB_Table):
             '''
             CREATE TABLE IF NOT EXISTS equipment (
             id INTEGER PRIMARY KEY,
-            name TEXT NOT NULL
+            name TEXT,
+            func TEXT
             )
             '''
         )
@@ -46,13 +47,28 @@ class DB_Table_equipment(DB_Table):
     
     def cell_changed(self, id, column, text):
         label = self.header_labels[column]
-
         
         string = "UPDATE equipment SET " + str(label) + " = \"" + str(text) + "\" WHERE id = " + str(id) + ";"
-        print(string)
 
         self.db.cursor.execute(string)
 
         self.db.connection.commit()
+
+    def new_row(self):
+        string = "INSERT INTO equipment (func) VALUES (NULL);"
+        
+        self.db.cursor.execute(string)
+
+        self.db.connection.commit()
+
+        self.db.cursor.execute("SELECT last_insert_rowid()")
+
+        return self.db.cursor.fetchone()[0]
+    
+    def get_row(self, id: str):
+        string = "select * from equipment WHERE id = " + id
+        self.db.cursor.execute(string)
+        
+        return self.db.cursor.fetchone()
 
 
