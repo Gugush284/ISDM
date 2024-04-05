@@ -7,7 +7,7 @@ class TableMenu(QMenu):
         self.row = None
         self.table = table
 
-        del_action = self.addAction("Удалить строку")
+        del_action = self.addAction("Delete row")
 
         # Connect the actions to methods
         del_action.triggered.connect(self.del_action_triggered)
