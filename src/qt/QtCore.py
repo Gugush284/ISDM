@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
         grid_layout.addWidget(AddButton, 450, 0)
 
     def __init_add_button__(self):
-        AddButton = QPushButton("Добавить строку")
+        AddButton = QPushButton("Add row")
 
         AddButton.clicked.connect(self.__add_row__)
 
