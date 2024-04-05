@@ -1,59 +1,35 @@
-<mxfile host="Electron" modified="2024-02-18T20:04:10.781Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="oQ42yErNliZ8ZK572j9g" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-04-05T09:16:31.011Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="te5MjxueCan3p5iErYEF" version="23.1.5" type="device">
   <diagram name="Страница — 1" id="bYAXv9phPQOWTj4dlshL">
     <mxGraphModel dx="2266" dy="917" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-1" target="7lWwqLBV_PmxYGzbmkkz-2">
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7lWwqLBV_PmxYGzbmkkz-1" target="7lWwqLBV_PmxYGzbmkkz-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-1" value="17.02.24&lt;br&gt;1) Изучение вопроса&lt;br&gt;2) Подготовка вводной информации" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-1" value="&lt;div&gt;17.02.24 (done)&lt;/div&gt;&lt;div&gt;1) Studying the issue&lt;/div&gt;&lt;div&gt;2) Preparation of introductory information&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="20" y="20" width="220" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-2" target="7lWwqLBV_PmxYGzbmkkz-4">
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7lWwqLBV_PmxYGzbmkkz-2" target="7lWwqLBV_PmxYGzbmkkz-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-2" value="02.03.24&lt;br&gt;1) Создание заполняемой базы данных&lt;br&gt;2) Создание графического представления таблиц взаимодействия" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-2" value="&lt;div&gt;02.03.24&lt;/div&gt;&lt;div&gt;1) Creation of a populated database&lt;/div&gt;&lt;div&gt;2) Creating a graphical representation of interaction tables&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
           <mxGeometry x="300" y="20" width="260" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-4" target="7lWwqLBV_PmxYGzbmkkz-5">
+        <mxCell id="tni7hSKde1JQ3VHghMZ0-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-4" target="7lWwqLBV_PmxYGzbmkkz-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-4" value="16.03.24&lt;br&gt;1) Создание графического представления из базы данных&lt;br&gt;2) Добиться правильности построения (без наложений)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="620" y="20" width="190" height="70" as="geometry" />
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-4" value="&lt;div&gt;16.03.24&lt;/div&gt;&lt;div&gt;1) Creating a graphical representation from the database&lt;/div&gt;&lt;div&gt;2) To achieve the correct construction (without overlays)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="600" y="15" width="220" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-5" target="7lWwqLBV_PmxYGzbmkkz-6">
+        <mxCell id="tni7hSKde1JQ3VHghMZ0-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-5" target="7lWwqLBV_PmxYGzbmkkz-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-5" value="30.03.24&lt;br&gt;1) Создание подписи на линиях связи&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;2) Вывод информации о компонентах&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;3) Сделать выделение связи" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="620" y="120" width="200" height="90" as="geometry" />
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-5" value="&lt;div&gt;30.03.24&lt;/div&gt;&lt;div&gt;1) Creating a signature on communication lines&lt;/div&gt;&lt;div&gt;2) Output information about the components&lt;/div&gt;&lt;div&gt;3) Make a connection selection&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="860" y="10" width="200" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-6" target="7lWwqLBV_PmxYGzbmkkz-7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-6" value="13.04.24&lt;div&gt;Резерв&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="340" y="120" width="180" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-7" target="7lWwqLBV_PmxYGzbmkkz-18">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-7" value="27.04.24&lt;br&gt;&lt;div&gt;Оформить документацию&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="30" y="130" width="180" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-18" target="7lWwqLBV_PmxYGzbmkkz-20">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-18" value="11.05.24&lt;br&gt;Улучшения" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="10" y="250" width="220" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7lWwqLBV_PmxYGzbmkkz-20" target="7lWwqLBV_PmxYGzbmkkz-21">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-20" value="25.06.24&lt;br&gt;Улучшения" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="300" y="250" width="260" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="7lWwqLBV_PmxYGzbmkkz-21" value="Июнь&lt;br&gt;Защита" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="620" y="250" width="180" height="70" as="geometry" />
+        <mxCell id="7lWwqLBV_PmxYGzbmkkz-6" value="&lt;div&gt;13.04.24&lt;/div&gt;&lt;div&gt;Reserved&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="10" width="180" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
