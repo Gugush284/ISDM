@@ -3,17 +3,19 @@ from PyQt6.QtCore import QSize, Qt
 from qt.menu import TableMenu
 
 class Table(QTableWidget):
-    def __init__(self, names, row_count, data, num_header, data_base_table):
+    def __init__(self, names, row_count, data, num_db_header, num_inter_header, data_base_table):
         QTableWidget.__init__(self)
 
         self.db_table = data_base_table
 
-        self.setColumnCount(num_header)
+        self.num_db_header = num_db_header
+
+        self.setColumnCount(num_db_header + num_inter_header)
         self.setRowCount(row_count)
         self.setHorizontalHeaderLabels(names)
 
         for row in range(len(data)):
-            for c in range(num_header):
+            for c in range(num_db_header):
                 cell = QTableWidgetItem(str(data[row][c]))
                 self.setItem(row, c, cell)
         
@@ -28,7 +30,7 @@ class Table(QTableWidget):
 
     def __item_changed__(self, item):
 
-        if (item.column() != 0):
+        if ((item.column() != 0) and (item.column() < self.num_db_header)):
             cell = self.item(item.row(), item.column())
             id = self.item(item.row(), 0)
             self.db_table.cell_changed(int(id.text()), item.column(), cell.text())

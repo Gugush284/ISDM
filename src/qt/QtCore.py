@@ -4,20 +4,21 @@ import sys
 from qt.table import Table
 
 class MainWindow(QMainWindow):
-    def __init__(self, names, row_count, data, data_base_table):
+    def __init__(self, interNames, dbNames, row_count, data, data_base_table):
         QMainWindow.__init__(self)
 
-        self.num_header = len(names)
+        self.num_db_header = len(dbNames)
+        self.num_inter_header = len(interNames)
  
-        self.setMinimumSize(QSize(480, 80))         # Set sizes 
-        self.setWindowTitle("Таблица компонентов")    # Set the window title
+        self.setMinimumSize(QSize(1000, 500))         # Set sizes 
+        self.setWindowTitle("The table of components")    # Set the window title
         central_widget = QWidget(self)              # Create a central widget
         self.setCentralWidget(central_widget)       # Install the central widget
  
         grid_layout = QGridLayout(self)         # Create QGridLayout
         central_widget.setLayout(grid_layout)   # Set this layout in central widget
 
-        self.table = Table(names, row_count, data, self.num_header, data_base_table)  # Create a table
+        self.table = Table(dbNames + interNames, row_count, data, self.num_db_header, self.num_inter_header, data_base_table)  # Create a table
 
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
 
@@ -41,7 +42,7 @@ class MainWindow(QMainWindow):
         self.table.insertRow(row)
 
         self.table.setItem(row, 0, QTableWidgetItem(str(id)))
-        for column in range(1, self.num_header):
+        for column in range(1, self.num_db_header):
             self.table.setItem(row, column, QTableWidgetItem("-"))
 
     

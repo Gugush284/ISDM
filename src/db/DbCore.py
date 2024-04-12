@@ -18,7 +18,12 @@ class DB_Table():
 
 class DB_Table_equipment(DB_Table):
     def __init__(self, data_base):
-        names = ["id", "name", "func"]
+        names = [
+            "id",
+            "Component",
+            "Functions",
+            "Structure"
+        ]
 
         DB_Table.__init__(self, data_base, names)
 
@@ -26,8 +31,9 @@ class DB_Table_equipment(DB_Table):
             '''
             CREATE TABLE IF NOT EXISTS equipment (
             id INTEGER PRIMARY KEY,
-            name TEXT,
-            func TEXT
+            Component Name TEXT,
+            Functions TEXT,
+            Structure TEXT
             )
             '''
         )
@@ -55,7 +61,7 @@ class DB_Table_equipment(DB_Table):
         self.db.connection.commit()
 
     def new_row(self):
-        string = "INSERT INTO equipment (func) VALUES (NULL);"
+        string = "INSERT INTO equipment (Functions) VALUES (NULL);"
         
         self.db.cursor.execute(string)
 

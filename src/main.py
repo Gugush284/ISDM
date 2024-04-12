@@ -8,7 +8,9 @@ def main():
 
     teq = DB_Table_equipment(data_base)
 
-    window = MainWindow(teq.header_labels, teq.row_count(), teq.select_all_data(), teq)
+    interNames = ["Physical communication lines" ,"Logical communication lines"]
+
+    window = MainWindow(interNames, teq.header_labels, teq.row_count(), teq.select_all_data(), teq)
     window.show()
 
     app.exec()
