@@ -6,7 +6,13 @@ from qt.tables.table import Table
 
 class ETable(Table):
     def __init__(self, interNames, teq: DB_Table_equipment, tecon: DB_Table_econ):
-        Table.__init__(self, teq.header_labels + interNames, teq.row_count(), len(teq.header_labels) + len(interNames), teq)
+        Table.__init__(
+            self, 
+            teq.header_labels + interNames, 
+            teq.row_count(), 
+            len(teq.header_labels) + len(interNames), 
+            teq
+        )
 
         self.num_db_header = len(teq.header_labels)
         data = teq.select_all_data()
@@ -46,3 +52,17 @@ class ETable(Table):
         if ((item.column() > 0) and (item.column() < self.num_db_header)):
             id = self.item(item.row(), 0)
             self.db_table.cell_changed(int(id.text()), item.column(), item.text())
+
+    def add_row(self):
+        row = self.rowCount()
+        
+        id = self.db_table.new_row()
+
+        self.insertRow(row)
+
+        self.setItem(row, 0, QTableWidgetItem(str(id)))
+        for column in range(1, self.num_db_header):
+            self.setItem(row, column, QTableWidgetItem("-"))
+
+        self.add_pcb(row, self.num_db_header)
+        self.add_lcb(row, self.num_db_header + 1)
