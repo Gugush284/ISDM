@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QTableWidgetItem, QPushButton
 from functools import partial
-from db.DbCore import DB_Table_equipment, DB_Table_econ
+from db.equipment import DB_Table_equipment
+from db.connection import DB_Table_econ
 from qt.windows.pcon import PhysicalConnectionsWindow
 from qt.tables.table import Table
 

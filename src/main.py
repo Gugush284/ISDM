@@ -1,4 +1,6 @@
-from db.DbCore import DB, DB_Table_equipment, DB_Table_econ
+from db.DbCore import DB
+from db.equipment import DB_Table_equipment
+from db.connection import DB_Table_econ
 from qt.QtCore import QTapp, MainWindow
 
 def main():

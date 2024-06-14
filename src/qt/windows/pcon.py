@@ -1,8 +1,9 @@
 from qt.tables.econtable import ECTable
 from qt.windows.window import ConnectionsWindow
-from PyQt6.QtCore import QPoint
+from graph.graphCore import Gcore
 from PyQt6.QtWidgets import  QTableWidgetItem
-from db.DbCore import DB_Table_equipment, DB_Table_econ
+from db.equipment import DB_Table_equipment
+from db.connection import DB_Table_econ
 from qt.menu import PopUp
 
 class PhysicalConnectionsWindow(ConnectionsWindow):
@@ -53,3 +54,11 @@ class PhysicalConnectionsWindow(ConnectionsWindow):
 
     def __get_callback_comp__(self, dbtable: DB_Table_econ, id):
         return dbtable.get_row(id)[1]
+    
+    def __graph__(self):
+        g = Gcore()
+
+        print(self.table.callback_component)
+        print(self.table.db_table.get_connections(self.table.callback_component))
+
+        g.info()
