@@ -22,32 +22,11 @@ class MainWindow(QMainWindow):
         self.table = ETable(interNames, teq, tecon)  # Create a equipment table
 
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
-
-        AddButton = self.__init_add_button__()
  
         grid_layout.addWidget(self.table, 0, 0)   # Adding the table to the grid
-        grid_layout.addWidget(AddButton, 450, 0)
-
-    def __init_add_button__(self):
-        AddButton = QPushButton("Add row")
-
-        AddButton.clicked.connect(self.__add_row__)
-
-        return AddButton
 
     def __add_row__(self):
-        row = self.table.rowCount()
-        
-        id = self.table.db_table.new_row()
-
-        self.table.insertRow(row)
-
-        self.table.setItem(row, 0, QTableWidgetItem(str(id)))
-        for column in range(1, self.num_db_header):
-            self.table.setItem(row, column, QTableWidgetItem("-"))
-
-        self.table.add_pcb(row, self.num_db_header)
-        self.table.add_lcb(row, self.num_db_header + 1)
+        self.table.add_row()
 
     
 

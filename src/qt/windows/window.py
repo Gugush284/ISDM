@@ -1,6 +1,5 @@
 from PyQt6.QtWidgets import QGridLayout, QWidget, QTableWidgetItem, QPushButton
 from PyQt6.QtCore import QSize
-from db.DbCore import DB_Table_econ
 
 class AnotherWindow(QWidget):
     def __init__(self):
@@ -19,25 +18,16 @@ class ConnectionsWindow(AnotherWindow):
         grid_layout = QGridLayout(self)       
         self.setLayout(grid_layout)   
 
-        AddButton = QPushButton("Add row")
+        AddButtonShow = QPushButton("Show")
 
-        AddButton.clicked.connect(self.__add_row__)
+        AddButtonShow.clicked.connect(self.__graph__)
 
         grid_layout.addWidget(self.table, 0, 0) 
 
-        grid_layout.addWidget(AddButton, 450, 0)
+        grid_layout.addWidget(AddButtonShow, 500, 0)
 
     def __add_row__(self):
-        row = self.table.rowCount()
-        
-        id = self.table.db_table.new_row(
-            value=self.callback_component, 
-            column = self.callback_component_type
-        )
+        self.table.add_row()
 
-        self.table.insertRow(row)
-
-        self.table.setItem(row, 0, QTableWidgetItem(str(id)))
-        self.table.setItem(row, 1, QTableWidgetItem(self.callback_component))
-        for column in range(2, len(self.table.db_table.header_labels)):
-            self.table.setItem(row, column, QTableWidgetItem("-"))
+    def __graph__(self):
+        return

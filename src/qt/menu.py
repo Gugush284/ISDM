@@ -9,9 +9,11 @@ class TableMenu(QMenu):
         self.table = table
 
         del_action = self.addAction("Delete row")
+        add_action = self.addAction("Add row")
 
         # Connect the actions to methods
         del_action.triggered.connect(self.del_action_triggered)
+        add_action.triggered.connect(self.add_action_triggered)
 
     def set_row2delete(self, row):
         self.row = row
@@ -21,6 +23,10 @@ class TableMenu(QMenu):
             self.table.db_table.delete_row(str(self.table.item(self.row , 0).text()))
 
             self.table.removeRow(self.row)
+
+    def add_action_triggered(self):
+        print("de")
+        self.table.add_row()
 
 class PopUp(QDialog):
     def __init__(self, labels):
