@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QMenu
+from PyQt6.QtWidgets import QDialog, QListWidget, QGridLayout
 
 class TableMenu(QMenu):
     def __init__(self, table):
@@ -20,3 +21,21 @@ class TableMenu(QMenu):
             self.table.db_table.delete_row(str(self.table.item(self.row , 0).text()))
 
             self.table.removeRow(self.row)
+
+class PopUp(QDialog):
+    def __init__(self, labels):
+        QDialog.__init__(self)
+        self.itemSelected = ""
+        self.setLayout(QGridLayout(self))
+        lWidget = QListWidget(self)
+        self.layout().addWidget(lWidget)
+        lWidget.addItems(labels)
+        lWidget.itemClicked.connect(self.onItemClicked)
+        self.layout().setContentsMargins(0, 0, 0, 0)
+
+    def onItemClicked(self, item):
+        self.itemSelected = item.text()
+        self.accept()
+
+    def text(self):
+        return self.itemSelected

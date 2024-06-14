@@ -1,9 +1,7 @@
 from PyQt6.QtWidgets import QTableWidgetItem, QPushButton
-from PyQt6.QtCore import Qt
-from qt.menu import TableMenu
 from functools import partial
 from db.DbCore import DB_Table_equipment, DB_Table_econ
-from qt.pcon import PhysicalConnectionsWindow
+from qt.windows.pcon import PhysicalConnectionsWindow
 from qt.tables.table import Table
 
 class ETable(Table):
@@ -23,30 +21,12 @@ class ETable(Table):
 
             self.add_lcb(row, self.num_db_header + 1)
 
-        self.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
-        self.customContextMenuRequested.connect(self.__menu__)
-
         self.hideColumn(0)
 
         self.itemChanged.connect(self.__item_changed__)
 
-    def __item_changed__(self, item):
-
-        if ((item.column() != 0) and (item.column() < self.num_db_header)):
-            id = self.item(item.row(), 0)
-            self.db_table.cell_changed(int(id.text()), item.column(), item.text())
-
-    def __menu__(self, pos):
-        row = self.row(self.itemAt(pos))
-
-        menu = TableMenu(self)
-
-        menu.set_row2delete(row)
-
-        menu.exec(self.mapToGlobal(pos))
-
     def __spc__(self, row):
-        self.pcw = PhysicalConnectionsWindow(self.table_connections)
+        self.pcw = PhysicalConnectionsWindow(self.db_table, self.table_connections, self.item(row, 0).text())
         self.pcw.show()
 
     def __slc__(self, row):
@@ -61,3 +41,8 @@ class ETable(Table):
         lButton = QPushButton("Show logical connections")
         lButton.clicked.connect(partial(self.__slc__, row))
         self.setCellWidget(row, column, lButton)
+
+    def __item_changed__(self, item):
+        if ((item.column() > 0) and (item.column() < self.num_db_header)):
+            id = self.item(item.row(), 0)
+            self.db_table.cell_changed(int(id.text()), item.column(), item.text())

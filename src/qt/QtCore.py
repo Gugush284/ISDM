@@ -1,4 +1,4 @@
-from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidgetItem, QPushButton, QHeaderView
 from db.DbCore import DB_Table_equipment, DB_Table_econ
 import sys
