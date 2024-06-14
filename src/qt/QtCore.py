@@ -1,13 +1,14 @@
-from PyQt6.QtCore import QSize, Qt
+from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidgetItem, QPushButton, QHeaderView
+from db.DbCore import DB_Table_equipment, DB_Table_econ
 import sys
-from qt.table import Table
+from qt.tables.etable import ETable
 
 class MainWindow(QMainWindow):
-    def __init__(self, interNames, dbNames, row_count, data, data_base_table):
+    def __init__(self, interNames, teq: DB_Table_equipment, tecon: DB_Table_econ):
         QMainWindow.__init__(self)
 
-        self.num_db_header = len(dbNames)
+        self.num_db_header = len(teq.header_labels)
         self.num_inter_header = len(interNames)
  
         self.setMinimumSize(QSize(1000, 500))         # Set sizes 
@@ -18,7 +19,7 @@ class MainWindow(QMainWindow):
         grid_layout = QGridLayout(self)         # Create QGridLayout
         central_widget.setLayout(grid_layout)   # Set this layout in central widget
 
-        self.table = Table(dbNames + interNames, row_count, data, self.num_db_header, self.num_inter_header, data_base_table)  # Create a table
+        self.table = ETable(interNames, teq, tecon)  # Create a equipment table
 
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
 
@@ -44,6 +45,9 @@ class MainWindow(QMainWindow):
         self.table.setItem(row, 0, QTableWidgetItem(str(id)))
         for column in range(1, self.num_db_header):
             self.table.setItem(row, column, QTableWidgetItem("-"))
+
+        self.table.add_pcb(row, self.num_db_header)
+        self.table.add_lcb(row, self.num_db_header + 1)
 
     
 
