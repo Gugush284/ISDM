@@ -1,6 +1,7 @@
 from PyQt6.QtCore import QSize
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QTableWidgetItem, QPushButton, QHeaderView
-from db.DbCore import DB_Table_equipment, DB_Table_econ
+from db.equipment import DB_Table_equipment
+from db.connection import DB_Table_econ
 import sys
 from qt.tables.etable import ETable
 

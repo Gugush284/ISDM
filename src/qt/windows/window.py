@@ -1,5 +1,6 @@
-from PyQt6.QtWidgets import QGridLayout, QWidget, QTableWidgetItem, QPushButton
+from PyQt6.QtWidgets import QGridLayout, QWidget, QPushButton
 from PyQt6.QtCore import QSize
+from graph.graphCore import Gcore
 
 class AnotherWindow(QWidget):
     def __init__(self):
@@ -30,4 +31,6 @@ class ConnectionsWindow(AnotherWindow):
         self.table.add_row()
 
     def __graph__(self):
-        return
+        g = Gcore()
+
+        g.info()

@@ -1,5 +1,5 @@
 from qt.tables.table import Table
-from db.DbCore import DB_Table_econ
+from db.connection import DB_Table_econ
 from PyQt6.QtWidgets import QTableWidgetItem
 
 class ECTable(Table):
