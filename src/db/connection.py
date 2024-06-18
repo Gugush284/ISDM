@@ -49,3 +49,9 @@ class DB_Table_econ(DB_Table):
         self.db.cursor.execute(string)
         
         return self.db.cursor.fetchall()
+    
+    def get_pair(self, fc: str):
+        string = "select Fcomponent, Scomponent from " + self.table_name + " WHERE Fcomponent = '" + fc + "';"
+        self.db.cursor.execute(string)
+        
+        return self.db.cursor.fetchall()
