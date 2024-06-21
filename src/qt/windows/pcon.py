@@ -55,19 +55,19 @@ class PhysicalConnectionsWindow(ConnectionsWindow):
     def __get_callback_comp__(self, dbtable: DB_Table_econ, id):
         return dbtable.get_row(id)[1]
     
+    def __get_connections(self):
+        connections = self.table.db_table.get_connections(self.table.callback_component)
+
+        return [(elem[1], elem[2], elem[3]) for elem in connections]
+    
     def __graph__(self):
         g = Gcore()
+        connections = self.__get_connections()
 
-        connections = self.table.db_table.get_pair(self.table.callback_component)
+        g.add_nodes_from_connections(connections)
 
-        array = [self.table.callback_component]
-        for elem in connections:
-            array.append(elem[1])
+        g.add_edges_with_label(connections)
 
-        g.add_nodes(array)
-
-        g.add_edges(connections)
-
-        g.info()
+        #g.info()
 
         g.show()
