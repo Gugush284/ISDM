@@ -55,3 +55,23 @@ class DB_Table_econ(DB_Table):
         self.db.cursor.execute(string)
         
         return self.db.cursor.fetchall()
+    
+    def delete_Fcomponent(self, component: str):
+        string = "DELETE from " + self.table_name + \
+            " WHERE Fcomponent = '" + component + \
+            "';"
+
+        self.db.cursor.execute(string)
+
+        self.db.connection.commit()
+
+    def delete_Scomponent(self, component: str):
+        string = "DELETE from " + self.table_name + \
+            " WHERE Scomponent = '" + component + \
+            "';"
+
+        self.db.cursor.execute(string)
+
+        self.db.connection.commit()
+
+    

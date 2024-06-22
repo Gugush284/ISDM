@@ -28,6 +28,21 @@ class TableMenu(QMenu):
         print("de")
         self.table.add_row()
 
+class MainTableMenu(TableMenu):
+    def __init__(self, table, table_connections):
+        TableMenu.__init__(self, table)
+
+        self.table_connections = table_connections
+
+    def del_action_triggered(self):
+        if (self.row != None):
+            self.table.db_table.delete_row(str(self.table.item(self.row , 0).text()))
+
+            self.table_connections.delete_Fcomponent(self.table.item(self.row , 1).text())
+            self.table_connections.delete_Scomponent(self.table.item(self.row , 1).text())
+
+            self.table.removeRow(self.row)
+
 class PopUp(QDialog):
     def __init__(self, labels):
         QDialog.__init__(self)

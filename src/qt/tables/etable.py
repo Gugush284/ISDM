@@ -4,6 +4,7 @@ from db.equipment import DB_Table_equipment
 from db.connection import DB_Table_econ
 from qt.windows.pcon import PhysicalConnectionsWindow
 from qt.tables.table import Table
+from qt.menu import MainTableMenu
 
 class ETable(Table):
     def __init__(self, interNames, teq: DB_Table_equipment, tecon: DB_Table_econ):
@@ -32,8 +33,8 @@ class ETable(Table):
 
         self.itemChanged.connect(self.__item_changed__)
 
-    def __spc__(self, row):
-        self.pcw = PhysicalConnectionsWindow(self.db_table, self.table_connections, self.item(row, 0).text())
+    def __spc__(self, item):
+        self.pcw = PhysicalConnectionsWindow(self.db_table, self.table_connections, item.text())
         self.pcw.show()
 
     def __slc__(self, row):
@@ -41,7 +42,7 @@ class ETable(Table):
 
     def add_pcb(self,row: int, column: int):
         pButton = QPushButton("Show physical connections")
-        pButton.clicked.connect(partial(self.__spc__, row))
+        pButton.clicked.connect(partial(self.__spc__, self.item(row, 0)))
         self.setCellWidget(row, column, pButton)
 
     def add_lcb(self,row: int, column: int):
@@ -67,3 +68,12 @@ class ETable(Table):
 
         self.add_pcb(row, self.num_db_header)
         self.add_lcb(row, self.num_db_header + 1)
+
+    def __menu__(self, pos):
+        row = self.row(self.itemAt(pos))
+
+        menu = MainTableMenu(self, self.table_connections)
+
+        menu.set_row2delete(row)
+
+        menu.exec(self.mapToGlobal(pos))
