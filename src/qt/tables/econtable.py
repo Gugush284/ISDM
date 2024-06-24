@@ -1,6 +1,7 @@
 from qt.tables.table import Table
 from db.connection import DB_Table_econ
 from PyQt6.QtWidgets import QTableWidgetItem
+from qt.menu import PconMenu
 
 class ECTable(Table):
     def __init__(self, tecon: DB_Table_econ, callback_comp, callback_type):
@@ -43,4 +44,27 @@ class ECTable(Table):
         self.setItem(row, 0, QTableWidgetItem(str(id)))
         self.setItem(row, 1, QTableWidgetItem(self.callback_component))
         for column in range(2, len(self.db_table.header_labels)):
-            self.setItem(row, column, QTableWidgetItem("-"))
+            self.setItem(row, column, QTableWidgetItem(""))
+
+    def __menu__(self, pos):
+        row = self.row(self.itemAt(pos))
+
+        menu = PconMenu(self)
+
+        menu.set_row(row)
+
+        menu.exec(self.mapToGlobal(pos))
+
+    def reboot(self):
+        print("reboot")
+
+        data = self.db_table.get_connections(self.callback_component)
+
+        print(data)
+
+        self.setRowCount(self.db_table.row_count_where(self.callback_type + " = '" + self.callback_component + "'"))
+
+        for row in range(len(data)):
+            for c in range(len(self.db_table.header_labels)):
+                cell = QTableWidgetItem(str(data[row][c]))
+                self.setItem(row, c, cell)

@@ -40,7 +40,7 @@ class DB_Table():
         return self.row_count(where = " WHERE " + where + " ")
     
     def get_comp(self):
-        self.db.cursor.execute("select Component from " + self.table_name + ";")
+        self.db.cursor.execute("select id, Component from " + self.table_name + ";")
         
         return self.db.cursor.fetchall()
     
@@ -50,6 +50,7 @@ class DB_Table():
         return self.db.cursor.fetchall()
     
     def __new_row__(self, insert: str, select: str):
+        print(insert)
         self.db.cursor.execute(insert)
 
         self.db.connection.commit()

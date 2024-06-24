@@ -4,6 +4,7 @@ from db.equipment import DB_Table_equipment
 from db.connection import DB_Table_econ
 import sys
 from qt.tables.etable import ETable
+from graph.pgraph import PGraph
 
 class MainWindow(QMainWindow):
     def __init__(self, interNames, teq: DB_Table_equipment, tecon: DB_Table_econ):
@@ -26,9 +27,17 @@ class MainWindow(QMainWindow):
  
         grid_layout.addWidget(self.table, 0, 0)   # Adding the table to the grid
 
+        AddButtonShow = QPushButton("Show")
+
+        AddButtonShow.clicked.connect(self.__graph__)
+
+        grid_layout.addWidget(AddButtonShow, 500, 0)
+
     def __add_row__(self):
         self.table.add_row()
 
+    def __graph__(self):
+        PGraph(self.table.table_connections.select_all_data()).graph()
     
 
 def QTapp():
