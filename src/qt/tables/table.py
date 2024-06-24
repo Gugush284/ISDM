@@ -25,6 +25,6 @@ class Table(QTableWidget):
 
         menu = TableMenu(self)
 
-        menu.set_row2delete(row)
+        menu.set_row(row)
 
         menu.exec(self.mapToGlobal(pos))

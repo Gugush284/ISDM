@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 class Gcore():
     def __init__(self):
         self.graph = nx.DiGraph(directed=True)
-        self.edges_label = None
+        self.edges_label = dict()
 
         self.options = {
             'node_color': 'lightblue',     # color of node
@@ -36,13 +36,14 @@ class Gcore():
     def add_edges_with_label(self, connections):
         self.add_edges([(elem[0], elem[1]) for elem in connections])
 
-        self.edges_label = dict([((elem[0], elem[1]), elem[2]) for elem in connections])
+        for elem in connections:
+            self.edges_label[(elem[0], elem[1])] = elem[2]
 
     def show(self):
-        pos = nx.spring_layout(self.graph)
+        pos = nx.shell_layout(self.graph)
         nx.draw_networkx(self.graph, pos, **(self.options))
 
-        if self.edges_label is not None:
+        if len(self.edges_label) != 0:
             nx.draw_networkx_edge_labels(self.graph, pos, edge_labels=self.edges_label)
 
         plt.show()

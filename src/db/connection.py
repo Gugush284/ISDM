@@ -6,7 +6,8 @@ class DB_Table_econ(DB_Table):
             "id",
             "Fcomponent",
             "Scomponent",
-            "Connections"
+            "Connections",
+            "Type"
         ]
 
         DB_Table.__init__(self, data_base, names)
@@ -19,7 +20,8 @@ class DB_Table_econ(DB_Table):
             id INTEGER PRIMARY KEY,
             Fcomponent INTEGER,
             Scomponent INTEGER,
-            Connections TEXT
+            Connections TEXT,
+            Type TEXT 
             )
             '''
         )
@@ -69,6 +71,15 @@ class DB_Table_econ(DB_Table):
         string = "DELETE from " + self.table_name + \
             " WHERE Scomponent = '" + component + \
             "';"
+
+        self.db.cursor.execute(string)
+
+        self.db.connection.commit()
+
+    def get_connect_line(self, first, second):
+        string = "select * from " + self.table_name + \
+            " WHERE Fcomponent = '" + first + \
+            "' and Scomponent = '" + second + "';"
 
         self.db.cursor.execute(string)
 

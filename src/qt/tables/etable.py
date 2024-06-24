@@ -38,7 +38,7 @@ class ETable(Table):
         self.pcw.show()
 
     def __slc__(self, row):
-        print(self.item(row, 0).text())
+        None
 
     def add_pcb(self,row: int, column: int):
         pButton = QPushButton("Show physical connections")
@@ -64,7 +64,7 @@ class ETable(Table):
 
         self.setItem(row, 0, QTableWidgetItem(str(id)))
         for column in range(1, self.num_db_header):
-            self.setItem(row, column, QTableWidgetItem("-"))
+            self.setItem(row, column, QTableWidgetItem(""))
 
         self.add_pcb(row, self.num_db_header)
         self.add_lcb(row, self.num_db_header + 1)
@@ -74,6 +74,6 @@ class ETable(Table):
 
         menu = MainTableMenu(self, self.table_connections)
 
-        menu.set_row2delete(row)
+        menu.set_row(row)
 
         menu.exec(self.mapToGlobal(pos))

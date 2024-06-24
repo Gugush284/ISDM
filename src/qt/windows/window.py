@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QGridLayout, QWidget, QPushButton
+from PyQt6.QtWidgets import QGridLayout, QWidget
 from PyQt6.QtCore import QSize
 from graph.graphCore import Gcore
 
@@ -16,21 +16,15 @@ class ConnectionsWindow(AnotherWindow):
         self.callback_component = callback_component
         self.callback_component_type = callback_component_type
 
-        grid_layout = QGridLayout(self)       
-        self.setLayout(grid_layout)   
+        self.grid_layout = QGridLayout(self)       
+        self.setLayout(self.grid_layout)   
 
-        AddButtonShow = QPushButton("Show")
-
-        AddButtonShow.clicked.connect(self.__graph__)
-
-        grid_layout.addWidget(self.table, 0, 0) 
-
-        grid_layout.addWidget(AddButtonShow, 500, 0)
+        self.grid_layout.addWidget(self.table, 0, 0)
 
     def __add_row__(self):
         self.table.add_row()
 
-    def __graph__(self):
+    def graph(self):
         g = Gcore()
 
         g.info()

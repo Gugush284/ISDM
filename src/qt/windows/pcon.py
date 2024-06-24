@@ -1,6 +1,7 @@
 from qt.tables.econtable import ECTable
 from qt.windows.window import ConnectionsWindow
-from graph.graphCore import Gcore
+from graph.pgraph import PGraph
+from PyQt6.QtWidgets import QPushButton
 from PyQt6.QtWidgets import  QTableWidgetItem
 from db.equipment import DB_Table_equipment
 from db.connection import DB_Table_econ
@@ -26,48 +27,77 @@ class PhysicalConnectionsWindow(ConnectionsWindow):
 
         self.setWindowTitle("Physical Connections Window")    # Set the window title
 
+        AddButtonShow = QPushButton("Show")
+
+        AddButtonShow.clicked.connect(self.__graph__)
+
+        self.grid_layout.addWidget(self.table, 0, 0) 
+
+        self.grid_layout.addWidget(AddButtonShow, 500, 0)
+
+
     def __get_comp_from_db__(self):
-        array = []
         db_array = self.comptable.get_comp()
 
-        for a in db_array:
-            for elem in a:
-                array.append(elem)
+        dict = {}
+
+        for elem in db_array:
+            dict[elem[1]] = elem[0]
         
-        return array
+        return dict
 
     def onClicked(self, index):
         row = index.row()
         column = index.column()
 
-        if column != 2:
-            return
+        if column == 2 or column == 3:
+            components = self.__get_comp_from_db__()
 
-        x = self.table.columnViewportPosition(column)
-        y = self.table.rowViewportPosition(row) + self.table.rowHeight(row)
+            p = PopUp(list(components.keys()))
 
-        p = PopUp(self.__get_comp_from_db__())
-        
-        if p.exec() == 1:
-            t_item = QTableWidgetItem(p.text())
-            self.table.setItem(row, column, t_item)
+            if column == 2:
+                if p.exec() == 1:
+                    t_item = QTableWidgetItem(p.text())
+                    self.table.setItem(row, column, t_item)
+            elif column == 3:
+                if p.exec() == 1:
+                    item = self.table.item(row, column)
+
+                    if item.text() != "" and item.text() != "-" and p.text() != "":
+                        connections_list = item.text().split(", ")
+
+                        for i in range(len(connections_list)):
+                            connections = ", ".join(str(x) for x in connections_list[i + 1: len(connections_list)])
+
+                            self.table.db_table.new_row(
+                                "Fcomponent, Scomponent, Connections, Type",
+                                connections_list[i] + "', '" + p.text() + "', '" + connections + "', '" + self.table.item(row, 4).text()
+                            )
+
+                        self.table.db_table.new_row(
+                            "Fcomponent, Scomponent, Connections, Type",
+                            self.table.item(row, 1).text() + "', '" + p.text() + "', '" + "', '" + self.table.item(row, 4).text()
+                        )
+
+                        item.setText(item.text() + ", " + p.text())
+
+                    else:
+                        if p.text() != "":
+                            self.table.db_table.new_row(
+                                "Fcomponent, Scomponent, Connections, Type",
+                                self.table.item(row, 1).text() + "', '" + p.text() + "', '" + "', '" + self.table.item(row, 4).text()
+                            )
+
+                        item.setText(p.text())
+
+                self.grid_layout.removeWidget(self.table)
+
+                self.table.reboot()
+
+                self.grid_layout.addWidget(self.table, 0, 0)
 
     def __get_callback_comp__(self, dbtable: DB_Table_econ, id):
         return dbtable.get_row(id)[1]
     
-    def __get_connections(self):
-        connections = self.table.db_table.get_connections(self.table.callback_component)
-
-        return [(elem[1], elem[2], elem[3]) for elem in connections]
-    
     def __graph__(self):
-        g = Gcore()
-        connections = self.__get_connections()
-
-        g.add_nodes_from_connections(connections)
-
-        g.add_edges_with_label(connections)
-
-        #g.info()
-
-        g.show()
+        PGraph(self.table.db_table.get_connections(self.table.callback_component)).graph()
